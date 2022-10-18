@@ -1,0 +1,25 @@
+<div class="container-flex">
+  <div class="filter-container">
+    <div class="action-button">
+      <button class="mx-1 p-button-blue" pButton pRipple label="Saved list" icon="pi pi-list"></button>
+      <button class="mx-1 p-button-text" pButton pRipple label="saved filter" icon="pi pi-filter"></button>
+      <button class="mx-1 p-button-text" pButton pRipple label="Search history" icon="pi pi-history"></button>
+    </div>
+    <div class="search-box">
+      <input type="text" pInputText [(ngModel)]="searchValue" (ngModelChange)="onSearch($event)" placeholder="Search" />
+    </div>
+  </div>
+
+  <div class="table-container mx-2 my-3 b-1">
+    <div class="row">
+      <div class="col-md-9">
+        <app-table-view [searchValue]="searchValue" (details)="onSelectedRowData($event)"></app-table-view>
+      </div>
+      <div class="col-md-3">
+        <span style=" background-color: #f5f5f5; padding: 10px 15px; color: #939191;"> No description yet <span style="color: #052b42;">+ Add Description
+          </span></span>
+        <p class="my-3 details">{{selectedRowData.details}}</p>
+      </div>
+    </div>
+  </div>
+</div>

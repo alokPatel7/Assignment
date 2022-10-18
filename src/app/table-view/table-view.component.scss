@@ -1,0 +1,23 @@
+.container-flex {
+    max-height: 90vh !important;
+    min-height: 90vh !important;
+    overflow-y: scroll;
+
+    ::ng-deep .p-button-text {
+        text-transform: none;
+    }
+
+    ::ng-deep .p-datatable-tbody tr td {
+        padding: 0px !important;
+    }
+
+
+    .icon {
+        color: #cecece !important;
+        cursor: pointer;
+    }
+
+    th {
+        color: #a0a0a0 !important;
+    }
+}

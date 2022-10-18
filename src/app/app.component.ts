@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'PrivateCircleAssignment';
+  searchValue: string = '';
+  selectedRowData: any = {}
+
+  onSearch(event: any) {
+    this.searchValue = event
+  }
+
+  onSelectedRowData(event: any) {
+    this.selectedRowData = event
+  }
 }

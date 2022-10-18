@@ -1,0 +1,46 @@
+<div class="container-flex">
+    <p-table [value]="datasource">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:10%">Date</th>
+                <th style="width:60%">List Name</th>
+                <th style="width:15%">No. of Entities</th>
+                <th style="width:35%">Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowdata let-index="rowIndex">
+            <tr>
+                <td style="color: #726f6f;">
+                    <ng-container *ngIf="!rowdata.isShowActionIcon">
+                        <i class="px-3 fa-regular fa-circle"></i>
+                    </ng-container>
+                    <ng-container *ngIf="rowdata.isShowActionIcon">
+                        {{rowdata.date | date:'MMM d'}}
+                    </ng-container>
+                </td>
+                <td>
+                    <ng-container>
+                        <b [ngStyle]="{'color': !rowdata.isShowActionIcon ? '#61b9eb':'#363636'}"
+                            style="color: #61b9eb;"> {{rowdata.name | titlecase}}</b>
+                    </ng-container>
+
+                </td>
+                <td><span class="mx-3" style="float: right;">{{rowdata.entitiesNo}}</span></td>
+                <td>
+                    <i class="px-2 icon pi pi-envelope"></i>
+                    <ng-container *ngIf="rowdata.isShowActionIcon">
+                        <i class="px-2 icon pi pi-share-alt"></i>
+                        <i class="px-2 icon pi pi-pencil"></i>
+                        <i class="px-2 icon pi pi-trash"></i>
+                        <i class="fa-light fa-envelope"></i>
+                    </ng-container>
+                </td>
+                <td><button class="mx-1 p-button-text" (click)="showDetails(rowdata)" pButton pRipple
+                        label="Details"></button></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <div class="w-100 text-center"><strong>No Data found</strong></div>
+        </ng-template>
+    </p-table>
+</div>
